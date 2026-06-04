@@ -41,6 +41,10 @@
             "MySQL",
             "DBMS"
         ],
+        "backend": [
+            "Node.js",
+            "REST APIs"
+        ],
         "frameworks": [
             "React"
         ],
