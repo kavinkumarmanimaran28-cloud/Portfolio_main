@@ -1,0 +1,99 @@
+{
+    "owner": {
+        "name": "Kavin Kumar M",
+        "title": "Web Developer, Prompt Engineer & Network Engineer",
+        "education": "B.E. in Computer Science Engineering (2023–Present) at Karpagam College of Engineering",
+        "location": "Studying in Coimbatore, Native of Palani",
+        "languages": [
+            "English",
+            "Tamil"
+        ],
+        "email": "kavinkumarkumar258@gmail.com",
+        "phone": "+91 6374-280-855",
+        "github": "https://github.com/KAVINKUMAR2818",
+        "linkedin": "https://www.linkedin.com/in/kavin-kumar-m-475614299/",
+        "leetcode": "https://leetcode.com/u/KAVIN_KUMAR_2818/"
+    },
+    "bio": "I am Kavin Kumar M, a motivated and detail-oriented aspiring Software and Network Engineer with a strong interest in Network Engineering, Software Development, and Web Technologies. Skilled in Python and Java, with hands-on knowledge of web development using HTML, CSS, and JavaScript. Currently pursuing B.E. CSE at Karpagam College of Engineering and preparing for the CCNA certification. Enthusiastic about exploring modern AI tools and integrating AI-driven solutions into web development.",
+    "coreCompetencies": [
+        "Frontend Development and UI/UX Design",
+        "Network Engineering and Cisco Networking",
+        "Prompt Engineering and AI Integration",
+        "Problem-Solving, Critical Thinking and Adaptability",
+        "Fast Learning with Team Collaboration"
+    ],
+    "skills": {
+        "languages": [
+            "Python",
+            "Java",
+            "JavaScript",
+            "Dart"
+        ],
+        "frontend": [
+            "HTML5",
+            "CSS3",
+            "React",
+            "Tailwind CSS",
+            "Flutter"
+        ],
+        "databases": [
+            "SQL",
+            "MySQL",
+            "DBMS"
+        ],
+        "frameworks": [
+            "React"
+        ],
+        "tools": [
+            "VS Code",
+            "Figma",
+            "Excel",
+            "Python IDLE",
+            "Dev C++",
+            "Power BI",
+            "Cisco Packet Tracer",
+            "AWS"
+        ]
+    },
+    "projects": [
+        {
+            "name": "Quiz Website",
+            "description": "A responsive web-based quiz application with timer and automatic score calculation",
+            "features": "Dynamic question handling, result display, countdown timer, automatic score calculation",
+            "tech": ["HTML", "CSS", "JavaScript"]
+        },
+        {
+            "name": "Business Website",
+            "description": "A modern responsive business website using reusable React components",
+            "features": "Routing, form validation, clean UI using Tailwind CSS",
+            "tech": ["React", "Tailwind CSS"]
+        },
+        {
+            "name": "Karpagam Foodcourt",
+            "description": "A mobile app for a campus foodcourt to display team members and match/menu details",
+            "features": "Screen navigation, dynamic list rendering, multi-screen Flutter app",
+            "tech": ["Flutter"]
+        }
+    ],
+    "certifications": [
+        "Cisco Networking Essentials - Cisco Networking Academy",
+        "Cisco Networking Basics - Cisco Networking Academy",
+        "Introduction to Cybersecurity - Cisco Networking Academy",
+        "Preparing for CCNA - Cisco Networking Academy",
+        "AWS Cloud Practitioner"
+    ],
+    "currentFocus": "Exploring Cisco networking concepts, preparing for CCNA, and integrating AI tools into web development",
+    "funFacts": [
+        "I love integrating AI into everyday web projects",
+        "I'm preparing for the CCNA certification!",
+        "I use Cisco Packet Tracer to simulate real networks",
+        "I have a JARVIS AI assistant in my portfolio!"
+    ],
+    "jarvisPersonality": {
+        "greeting": "Good day, I'm JARVIS — Kavin's portfolio assistant. How may I assist you today?",
+        "offTopicResponse": "I appreciate your curiosity, but I'm Kavin's portfolio assistant. I can help with information about Kavin, his projects, skills, or navigate this portfolio. I can also answer general questions if you need!",
+        "unknownResponse": "I'm not quite sure about that. You can ask me about Kavin's education, projects, skills, navigate to different sections, or ask me general questions!",
+        "apiLimitMessage": "Apologies, but I'm quite busy today. Please try again tomorrow! In the meantime, feel free to explore the portfolio.",
+        "tone": "Professional, helpful, and slightly witty — inspired by Tony Stark's JARVIS"
+    }
+}

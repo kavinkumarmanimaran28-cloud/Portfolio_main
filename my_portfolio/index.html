@@ -1,0 +1,766 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Kavin Kumar M - Digital Portfolio</title>
+    <meta name="description"
+        content="Portfolio of Kavin Kumar M, a passionate Computer Science Engineer specializing in Web Development, Network Engineering, and Prompt Engineering.">
+    <meta name="keywords"
+        content="Kavin Kumar M, Portfolio, Web Developer, Network Engineer, Prompt Engineer, Computer Science Engineer">
+
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://your-domain.com/">
+    <meta property="og:title" content="Kavin Kumar M - Digital Portfolio">
+    <meta property="og:description"
+        content="Portfolio of Kavin Kumar M, a passionate Computer Science Engineer specializing in Web Development and Network Engineering.">
+    <meta property="og:image" content="https://your-domain.com/dp.jpg">
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://your-domain.com/">
+    <meta property="twitter:title" content="Kavin Kumar M - Digital Portfolio">
+    <meta property="twitter:description"
+        content="Portfolio of Kavin Kumar M, a passionate Computer Science Engineer specializing in Web Development and Network Engineering.">
+    <meta property="twitter:image" content="https://your-domain.com/dp.jpg">
+    <link rel="icon" href="favicon.ico" type="image/x-icon">
+    <link rel="apple-touch-icon" href="apple-touch-icon.png">
+
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" rel="stylesheet">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+    <link rel='stylesheet' href='style.css'>
+    <link rel='stylesheet' href='jarvis.css'>
+</head>
+
+<body class="quantum-mode">
+    <!-- Mobile Compatibility Screen -->
+    <div class="mobile-overlay" id="mobile-overlay">
+        <div class="mobile-overlay-content">
+            <div class="mobile-icon">
+                <i class="fas fa-laptop"></i>
+            </div>
+            <h1>Best Viewed on Desktop</h1>
+            <p>This portfolio is optimized for laptops and larger screens for the best experience.</p>
+            <p class="mobile-subtitle">Please visit on a desktop or laptop to explore my full portfolio!</p>
+
+            <div class="mobile-share-section">
+                <p class="share-label">Share this link:</p>
+                <button class="share-link-btn" id="share-link-btn" onclick="copyShareLink()">
+                    <i class="fas fa-copy"></i>
+                    <span>Copy Link</span>
+                </button>
+                <p class="share-url">kavinkumar2818.github.io/my-portfolio</p>
+            </div>
+
+            <div class="mobile-contact-section">
+                <p class="contact-label">Connect with me:</p>
+                <div class="mobile-contact-links">
+                    <a href="https://www.linkedin.com/in/kavin-kumar-m-475614299/" target="_blank" rel="noopener noreferrer"
+                        class="mobile-contact-btn">
+                        <i class="fab fa-linkedin"></i>
+                    </a>
+                    <a href="https://github.com/KAVINKUMAR2818" target="_blank" rel="noopener noreferrer"
+                        class="mobile-contact-btn">
+                        <i class="fab fa-github"></i>
+                    </a>
+                    <a href="mailto:kavinkumarkumar258@gmail.com" class="mobile-contact-btn">
+                        <i class="fas fa-envelope"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Matrix Rain Canvas -->
+    <canvas id="matrix-canvas"></canvas>
+
+    <!-- Hacker Mode Toggle Button -->
+    <button class="hacker-toggle" id="hacker-toggle" title="Toggle Hacker Mode">
+        <i class="fas fa-terminal"></i>
+    </button>
+
+    <!-- Scroll Progress Bar -->
+    <div class="scroll-progress" id="scroll-progress"></div>
+
+    <!-- Back to Top Button -->
+    <button class="back-to-top" id="back-to-top" title="Back to Top">
+        <i class="fas fa-arrow-up"></i>
+    </button>
+
+    <!-- Certificate Lightbox -->
+    <div class="cert-lightbox" id="cert-lightbox">
+        <div class="cert-lightbox-content">
+            <button class="cert-lightbox-close" id="cert-lightbox-close">&times;</button>
+            <img src="" alt="Certificate" id="cert-lightbox-img">
+            <p class="cert-lightbox-title" id="cert-lightbox-title"></p>
+        </div>
+    </div>
+
+    <!-- Video Demo Modal -->
+    <div class="video-modal" id="video-modal">
+        <div class="video-modal-content">
+            <button class="video-modal-close" id="video-modal-close">&times;</button>
+
+            <!-- Gallery View -->
+            <div id="video-gallery-view">
+                <h3 class="gallery-title">Project Demos</h3>
+                <div class="video-gallery-grid" id="video-gallery-grid">
+                    <!-- Dynamic Content -->
+                </div>
+            </div>
+
+            <!-- Player View -->
+            <div id="video-player-view" style="display: none;">
+                <button class="back-to-gallery-btn" id="back-to-gallery"><i class="fas fa-arrow-left"></i> Back</button>
+                <video id="demo-video" controls>
+                    <source src="" type="video/mp4">
+                    Your browser does not support the video tag.
+                </video>
+                <h4 id="video-title-display" class="video-player-title"></h4>
+            </div>
+        </div>
+    </div>
+
+    <!-- UI Gallery Modal -->
+    <div class="ui-modal" id="ui-modal">
+        <div class="ui-modal-content">
+            <button class="ui-modal-close" id="ui-modal-close">&times;</button>
+
+            <!-- Gallery View -->
+            <div id="ui-gallery-view">
+                <h3 class="gallery-title">Project UI Screenshots</h3>
+                <div class="ui-gallery-grid" id="ui-gallery-grid">
+                    <!-- Dynamic Content -->
+                </div>
+            </div>
+
+            <!-- Fullscreen Image View -->
+            <div id="ui-fullscreen-view" style="display: none;">
+                <button class="back-to-ui-gallery-btn" id="back-to-ui-gallery"><i class="fas fa-arrow-left"></i>
+                    Back</button>
+                <div class="ui-image-container">
+                    <button class="ui-nav-btn ui-prev-btn" id="ui-prev-btn"><i class="fas fa-chevron-left"></i></button>
+                    <img id="ui-fullscreen-img" src="" alt="UI Screenshot">
+                    <button class="ui-nav-btn ui-next-btn" id="ui-next-btn"><i
+                            class="fas fa-chevron-right"></i></button>
+                </div>
+                <h4 id="ui-image-title" class="ui-image-title"></h4>
+            </div>
+        </div>
+    </div>
+
+    <!-- Easter Egg Elements -->
+    <div class="easter-egg-overlay" id="easter-egg-overlay"></div>
+    <div class="easter-egg-text" id="easter-egg-text"></div>
+
+    <!-- Profile Picture Zoom Modal - 3D Carousel Gallery -->
+    <div class="profile-zoom-modal" id="profile-zoom-modal">
+        <div class="profile-zoom-backdrop"></div>
+        <div class="profile-zoom-content">
+            <button class="carousel-nav-btn carousel-prev" id="carousel-prev">
+                <i class="fas fa-chevron-left"></i>
+            </button>
+            
+            <div class="carousel-container" id="carousel-container">
+                <div class="carousel-track" id="carousel-track">
+                    <div class="carousel-slide" data-index="0">
+                        <img src="projects/Profile/dp.jpg" alt="Kavin Kumar M - Photo 1">
+                    </div>
+                    <div class="carousel-slide" data-index="1">
+                        <img src="projects/Profile/dp-2.jpg" alt="Kavin Kumar M - Photo 2">
+                    </div>
+                    <div class="carousel-slide" data-index="2">
+                        <img src="projects/Profile/dp-3.jpg" alt="Kavin Kumar M - Photo 3">
+                    </div>
+                    <div class="carousel-slide" data-index="3">
+                        <img src="projects/Profile/dp-4.jpg" alt="Kavin Kumar M - Photo 4">
+                    </div>
+                    <div class="carousel-slide" data-index="4">
+                        <img src="projects/Profile/dp.jpg" alt="Kavin Kumar M - Photo 5">
+                    </div>
+                    <div class="carousel-slide" data-index="5">
+                        <img src="projects/Profile/dp.jpg" alt="Kavin Kumar M - Photo 6">
+                    </div>
+                    <div class="carousel-slide" data-index="6">
+                        <img src="projects/Profile/dp.jpg" alt="Kavin Kumar M - Photo 7">
+                    </div>
+                </div>
+            </div>
+            
+            <button class="carousel-nav-btn carousel-next" id="carousel-next">
+                <i class="fas fa-chevron-right"></i>
+            </button>
+            
+            <p class="profile-zoom-caption">Kavin Kumar M</p>
+            <div class="carousel-indicators" id="carousel-indicators">
+                <span class="indicator active" data-slide="0"></span>
+                <span class="indicator" data-slide="1"></span>
+                <span class="indicator" data-slide="2"></span>
+                <span class="indicator" data-slide="3"></span>
+                <span class="indicator" data-slide="4"></span>
+                <span class="indicator" data-slide="5"></span>
+                <span class="indicator" data-slide="6"></span>
+            </div>
+        </div>
+    </div>
+
+    <div id="preloader">
+        <h1 class="welcome-text"></h1>
+        <p class="unlock-prompt">Unlock to Explore</p>
+        <button id="unlock-button"><i class="fas fa-lock"></i></button>
+    </div>
+
+    <canvas id="neural-canvas"></canvas>
+
+    <!-- FIX: Header moved OUTSIDE main-content to prevent CSS filter from breaking position:fixed -->
+    <header>
+        <div class="header-content">
+            <div class="logo">Kavin Kumar M</div>
+            <div class="header-right">
+                <nav>
+                    <ul>
+                        <li><a href="#about">About</a></li>
+                        <li><a href="#tech-knowledge">Tech</a></li>
+                        <li><a href="#profiles">Profiles</a></li>
+                        <li><a href="#projects">Projects</a></li>
+                        <li><a href="#education">Education</a></li>
+                        <li><a href="#contact">Contact</a></li>
+                    </ul>
+                </nav>
+
+                <!-- Hamburger Menu Button -->
+                <button class="hamburger-menu" id="hamburger-menu" aria-label="Toggle Navigation">
+                    <span class="hamburger-bar"></span>
+                    <span class="hamburger-bar"></span>
+                    <span class="hamburger-bar"></span>
+                </button>
+
+                <a href="projects/resume/Kavin_Kumar_Resume.pdf" class="resume-btn" target="_blank"
+                    rel="noopener noreferrer">Resume</a>
+                <!-- Theme Toggle Switch -->
+                <div class="theme-switcher">
+                    <div class="theme-toggle-switch">
+                        <input type="radio" name="theme" id="theme-photon" value="photon-mode">
+                        <input type="radio" name="theme" id="theme-quantum" value="quantum-mode">
+                        <input type="radio" name="theme" id="theme-terminal" value="terminal-mode">
+
+                        <label for="theme-photon" class="theme-option" title="Photon Mode">
+                            <i class="fas fa-sun"></i>
+                        </label>
+                        <label for="theme-quantum" class="theme-option" title="Quantum Mode">
+                            <i class="fas fa-moon"></i>
+                        </label>
+                        <label for="theme-terminal" class="theme-option" title="Terminal Mode">
+                            <i class="fas fa-terminal"></i>
+                        </label>
+
+                        <span class="toggle-slider-bg"></span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Mobile Nav Overlay -->
+    <div class="mobile-nav-overlay" id="mobile-nav-overlay"></div>
+
+    <!-- Mobile Navigation Drawer -->
+    <div class="mobile-nav" id="mobile-nav">
+        <a href="#about">About</a>
+        <a href="#tech-knowledge">Tech</a>
+        <a href="#profiles">Profiles</a>
+        <a href="#projects">Projects</a>
+        <a href="#education">Education</a>
+        <a href="#contact">Contact</a>
+    </div>
+    </div>
+    </header>
+
+    <div id="main-content">
+        <section class="hero">
+            <div class="hero-grid">
+                <div class="hero-text reveal reveal-left">
+                    <h1 class="hero-title">KAVIN KUMAR M</h1>
+                    <div class="typewriter" id="typewriter"></div>
+                </div>
+                <div class="profile-picture-container reveal reveal-right" id="profile-picture">
+                    <img src="projects/Profile/dp.PNG" alt="A photo of Kavin Kumar M">
+                </div>
+            </div>
+        </section>
+
+        <section id="about">
+            <h2 class="section-title reveal reveal-up">About & Showcase</h2>
+            <div class="about-showcase-grid">
+                <div class="about-content reveal reveal-left">
+                    <p class="about-text"><strong>Motivated and detail-oriented aspiring Software and Network Engineer with a strong interest in Network Engineering, Software Development, and Web Technologies. Skilled in programming languages such as Python and Java, with hands-on knowledge of web development using HTML, CSS, and JavaScript. Passionate about building efficient, user-friendly, and scalable applications while continuously improving technical and problem-solving skills. Enthusiastic about exploring modern AI tools and integrating AI-driven solutions into web development to create smarter and more innovative applications.</strong></p>
+                    <div class="about-grid">
+                        <div class="traits">
+                            <h3>Core Competencies</h3>
+                            <ul>
+                                <li class="reveal reveal-up" style="transition-delay: 100ms;">Frontend Development &amp; UI/UX Design</li>
+                                <li class="reveal reveal-up" style="transition-delay: 200ms;">Network Engineering &amp; Cisco Networking</li>
+                                <li class="reveal reveal-up" style="transition-delay: 300ms;">Prompt Engineering &amp; AI Integration</li>
+                                <li class="reveal reveal-up" style="transition-delay: 400ms;">Problem-Solving, Critical Thinking &amp; Adaptability</li>
+                                <li class="reveal reveal-up" style="transition-delay: 500ms;">Fast Learning with Team Collaboration</li>
+                            </ul>
+                        </div>
+                        <div class="bio-data">
+                            <h3>Know About Me</h3>
+                            <ul>
+                                <li class="reveal reveal-up" style="transition-delay: 100ms;"><strong>Location:</strong>
+                                    <span>Coimbatore (Native: Palani)</span>
+                                </li>
+                                <li class="reveal reveal-up" style="transition-delay: 200ms;">
+                                    <strong>Education:</strong>
+                                    <span>B.E. in CSE (2023–Present) at Karpagam College of Engineering</span>
+                                </li>
+                                <li class="reveal reveal-up" style="transition-delay: 300ms;"><strong>Certification:</strong>
+                                    <span>Preparing for CCNA — Cisco Networking Academy</span>
+                                </li>
+                                <li class="reveal reveal-up" style="transition-delay: 400ms;">
+                                    <strong>Languages:</strong> <span>English, Tamil</span>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="laptop-wrapper reveal reveal-right">
+                    <div class="laptop">
+                        <div class="laptop-base"></div>
+                        <div class="laptop-screen">
+                            <div id="code-display-wrapper">
+                                <pre><code id="code-display"></code></pre>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <div class="quote-wrapper reveal reveal-zoom">
+            <blockquote class="quote-block">
+                <p class="quote-text"></p>
+                <footer class="quote-author"></footer>
+            </blockquote>
+        </div>
+
+        <section id="tech-knowledge">
+            <h2 class="section-title reveal reveal-up">My Technical Universe</h2>
+            <div class="skill-categories-wrapper reveal reveal-zoom">
+
+                <div class="skill-category">
+                    <h3 class="skill-category-title">Languages</h3>
+                    <div class="skill-grid">
+                        <div class="skill-logo-item" data-title="Python">
+                            <div class="logo-content"><img
+                                    src="https://www.vectorlogo.zone/logos/python/python-icon.svg" alt="Python"></div>
+                        </div>
+                        <div class="skill-logo-item" data-title="Java">
+                            <div class="logo-content"><img src="https://www.vectorlogo.zone/logos/java/java-icon.svg"
+                                    alt="Java"></div>
+                        </div>
+                        <div class="skill-logo-item" data-title="JavaScript">
+                            <div class="logo-content"><img
+                                    src="https://www.vectorlogo.zone/logos/javascript/javascript-icon.svg"
+                                    alt="JavaScript"></div>
+                        </div>
+                        <div class="skill-logo-item" data-title="Dart">
+                            <div class="logo-content"><img
+                                    src="https://www.vectorlogo.zone/logos/dartlang/dartlang-icon.svg" alt="Dart"></div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="skill-category">
+                    <h3 class="skill-category-title">Frontend</h3>
+                    <div class="skill-grid">
+                        <div class="skill-logo-item" data-title="HTML5">
+                            <div class="logo-content"><img
+                                    src="https://www.vectorlogo.zone/logos/w3_html5/w3_html5-icon.svg" alt="HTML5">
+                            </div>
+                        </div>
+                        <div class="skill-logo-item" data-title="CSS3">
+                            <div class="logo-content"><img
+                                    src="https://www.vectorlogo.zone/logos/w3_css/w3_css-icon.svg" alt="CSS3"></div>
+                        </div>
+                        <div class="skill-logo-item" data-title="React">
+                            <div class="logo-content"><img
+                                    src="https://www.vectorlogo.zone/logos/reactjs/reactjs-icon.svg" alt="React"></div>
+                        </div>
+                        <div class="skill-logo-item" data-title="Flutter">
+                            <div class="logo-content"><img
+                                    src="https://www.vectorlogo.zone/logos/flutterio/flutterio-icon.svg" alt="Flutter">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="skill-category">
+                    <h3 class="skill-category-title">Databases</h3>
+                    <div class="skill-grid">
+                        <div class="skill-logo-item" data-title="SQL / MySQL">
+                            <div class="logo-content"><img src="https://www.vectorlogo.zone/logos/mysql/mysql-icon.svg"
+                                    alt="MySQL"></div>
+                        </div>
+                        <div class="skill-logo-item" data-title="DBMS">
+                            <div class="logo-content"><img
+                                    src="https://www.vectorlogo.zone/logos/postgresql/postgresql-icon.svg"
+                                    alt="DBMS / PostgreSQL"></div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="skill-category">
+                    <h3 class="skill-category-title">Tools &amp; Platforms</h3>
+                    <div class="skill-grid">
+                        <div class="skill-logo-item" data-title="VS Code">
+                            <div class="logo-content"><img
+                                    src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/vscode/vscode-original.svg"
+                                    alt="VS Code"></div>
+                        </div>
+                        <div class="skill-logo-item" data-title="Figma">
+                            <div class="logo-content"><img
+                                    src="https://www.vectorlogo.zone/logos/figma/figma-icon.svg" alt="Figma"></div>
+                        </div>
+                        <div class="skill-logo-item" data-title="AWS">
+                            <div class="logo-content"><img
+                                    src="https://www.vectorlogo.zone/logos/amazon_aws/amazon_aws-icon.svg" alt="AWS">
+                            </div>
+                        </div>
+                        <div class="skill-logo-item" data-title="Power BI">
+                            <div class="logo-content"><img
+                                    src="https://upload.wikimedia.org/wikipedia/commons/c/cf/New_Power_BI_Logo.svg"
+                                    alt="Power BI"></div>
+                        </div>
+                        <div class="skill-logo-item" data-title="Cisco Packet Tracer">
+                            <div class="logo-content"><img
+                                    src="https://www.vectorlogo.zone/logos/cisco/cisco-icon.svg"
+                                    alt="Cisco Packet Tracer"></div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        <section id="profiles">
+            <h2 class="section-title reveal reveal-up">Coding Profiles</h2>
+            <div class="card-grid">
+                <a href="https://github.com/KAVINKUMAR2818" class="grid-card profile-card reveal reveal-up"
+                    target="_blank" rel="noopener noreferrer"><i class="fab fa-github"></i><span>GitHub</span></a>
+                <a href="https://www.linkedin.com/in/kavin-kumar-m-475614299/"
+                    class="grid-card profile-card reveal reveal-up" style="transition-delay: 100ms;" target="_blank"
+                    rel="noopener noreferrer"><i class="fab fa-linkedin"></i><span>LinkedIn</span></a>
+                <a href="https://leetcode.com/u/KAVIN_KUMAR_2818/" class="grid-card profile-card reveal reveal-up"
+                    style="transition-delay: 200ms;" target="_blank" rel="noopener noreferrer"><i
+                        class="fas fa-code"></i><span>LeetCode</span></a>
+            </div>
+        </section>
+
+        <div class="quote-wrapper reveal reveal-zoom">
+            <blockquote class="quote-block">
+                <p class="quote-text"></p>
+                <footer class="quote-author"></footer>
+            </blockquote>
+        </div>
+
+        <section id="projects">
+            <h2 class="section-title reveal reveal-up">My Projects</h2>
+            <div class="projects-container reveal reveal-left">
+                <div class="projects-scroller">
+
+                    <div class="grid-card project-card">
+                        <div class="project-image-wrapper"><img src="projects/images/quiz_website.png"
+                                alt="Quiz Website Screenshot"></div>
+                        <div class="project-content">
+                            <h3 class="project-title">Quiz Website</h3>
+                            <p class="project-description"><strong>Problem:</strong> A responsive web-based quiz application that allows users to test their knowledge with a timer and automatic score calculation.<br><br><strong>Features:</strong> Dynamic question handling and result display, countdown timer, automatic score calculation, responsive design.</p>
+                            <div class="tech-stack"><span class="tech-tag">HTML</span><span
+                                    class="tech-tag">CSS</span><span class="tech-tag">JavaScript</span></div>
+                            <div class="project-links">
+                                <button class="demo-video-btn" data-project-id="quiz-website"><i
+                                        class="fas fa-play-circle"></i>
+                                    Watch Demo</button>
+                                <button class="show-ui-btn" data-project-id="quiz-website"><i class="fas fa-images"></i>
+                                    Show UI</button>
+                                <a href="#" class="project-btn" target="_blank" rel="noopener noreferrer"><i
+                                        class="fas fa-external-link-alt"></i> Live Demo</a>
+                                <a href="https://github.com/KAVINKUMAR2818/INTERACTIVE-QUIZ-APPLICATION" class="project-btn" target="_blank"
+                                    rel="noopener noreferrer"><i class="fab fa-github"></i> View Code</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="grid-card project-card">
+                        <div class="project-image-wrapper"><img src="projects/images/business_website.png"
+                                alt="Business Website Screenshot"></div>
+                        <div class="project-content">
+                            <h3 class="project-title">Business Website</h3>
+                            <p class="project-description"><strong>Problem:</strong> A modern responsive business website with reusable components and clean UI, built using React and Tailwind CSS.<br><br><strong>Features:</strong> Reusable React components, client-side routing, form validation, clean and modern UI using Tailwind CSS.</p>
+                            <div class="tech-stack"><span class="tech-tag">React</span><span
+                                    class="tech-tag">Tailwind CSS</span></div>
+                            <div class="project-links">
+                                <button class="demo-video-btn" data-project-id="business-website"><i
+                                        class="fas fa-play-circle"></i>
+                                    Watch Demo</button>
+                                <button class="show-ui-btn" data-project-id="business-website"><i class="fas fa-images"></i>
+                                    Show UI</button>
+                                <a href="#" class="project-btn" target="_blank" rel="noopener noreferrer"><i
+                                        class="fas fa-external-link-alt"></i> Live Demo</a>
+                                <a href="https://github.com/KAVINKUMAR2818" class="project-btn" target="_blank"
+                                    rel="noopener noreferrer"><i class="fab fa-github"></i> View Code</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="grid-card project-card">
+                        <div class="project-image-wrapper"><img src="projects/images/karpagam_foodcourt.png"
+                                alt="Karpagam Foodcourt Screenshot"></div>
+                        <div class="project-content">
+                            <h3 class="project-title">Karpagam Foodcourt</h3>
+                            <p class="project-description"><strong>Problem:</strong> Identified the challenges faced by restaurant customers in managing table reservations and food ordering through traditional methods, leading to delays, communication gaps, and inefficient customer experiences.<br><br><strong>Features:</strong> Designed an interactive Figma prototype featuring table reservation, menu browsing, food ordering, cart management, payment flow, and booking confirmation screens to provide a seamless end-to-end dining experience.</p>
+                            <div class="tech-stack"><span class="tech-tag">Flutter</span></div>
+                            <div class="project-links">
+                                <button class="demo-video-btn" data-project-id="karpagam-foodcourt"><i
+                                        class="fas fa-play-circle"></i>
+                                    Watch Demo</button>
+                                    <button class="show-ui-btn" data-project-id="karpagam-foodcourt"><i
+                                        class="fas fa-images"></i>
+                                    Show UI</button>
+                                <a href="#" class="project-btn" target="_blank" rel="noopener noreferrer"><i
+                                        class="fas fa-external-link-alt"></i> Live Demo</a>
+                                <a href="https://github.com/KAVINKUMAR2818" class="project-btn" target="_blank"
+                                    rel="noopener noreferrer"><i class="fab fa-github"></i> View Code</a>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+        <section id="education">
+            <h2 class="section-title reveal reveal-up">Education &amp; Certifications</h2>
+            <div class="education-tabs reveal reveal-zoom">
+                <div class="tab-buttons">
+                    <button class="tab-btn active" data-tab="education-tab">Education</button>
+                    <button class="tab-btn" data-tab="certifications-tab">Certifications</button>
+                </div>
+                <div id="education-tab" class="tab-content active">
+                    <div class="education-item">
+                        <h3 class="education-title">Karpagam College of Engineering, Coimbatore</h3>
+                        <p class="education-details">Bachelor of Engineering, CSE<br>2023 – Present</p>
+                    </div>
+                    <div class="education-item">
+                        <h3 class="education-title">Akshaya Academy Matriculation Higher Secondary School, Palani</h3>
+                        <p class="education-details">Senior Secondary (Class 12) — Graduated 2023</p>
+                    </div>
+                    <div class="education-item">
+                        <h3 class="education-title">Akshaya Academy Matriculation Higher Secondary School, Palani</h3>
+                        <p class="education-details">Secondary School (Class 10) — Graduated 2021</p>
+                    </div>
+                </div>
+                <div id="certifications-tab" class="tab-content">
+                    <div class="cert-grid">
+                        <div class="cert-card reveal reveal-up">
+                            <div class="cert-image-wrapper"><img
+                                    src="projects/certificates/cisco_networking_essentials.png"
+                                    alt="Cisco Networking Essentials Certificate"></div>
+                            <div class="cert-info">
+                                <h3 class="cert-title">Cisco Networking Essentials</h3>
+                                <p class="cert-details">Cisco Networking Academy</p>
+                            </div>
+                        </div>
+
+                        <div class="cert-card reveal reveal-up" style="transition-delay: 100ms;">
+                            <div class="cert-image-wrapper"><img
+                                    src="projects/certificates/CCNA Enterprise Networking,Security and Automation.png"
+                                    alt="CCNA NETWORKING,SECURITY, AUTOMATION Certificate"></div>
+                            <div class="cert-info">
+                                <h3 class="cert-title">CCNA: Enterprise Networking,Security and Automation</h3>
+                                <p class="cert-details">Cisco Networking Academy</p>
+                            </div>
+                        </div>
+
+                        <div class="cert-card reveal reveal-up" style="transition-delay: 200ms;">
+                            <div class="cert-image-wrapper"><img
+                                    src="projects/certificates/mongodb_basics.png"
+                                    alt="MongoDB Basics – ICT Academy Learnathon"></div>
+                            <div class="cert-info">
+                                <h3 class="cert-title">MongoDB Basics</h3>
+                                <p class="cert-details">ICT Academy Learnathon</p>
+                            </div>
+                        </div>
+
+                        <div class="cert-card reveal reveal-up" style="transition-delay: 300ms;">
+                            <div class="cert-image-wrapper"><img src="projects/certificates/product_management_simulation.png"
+                                    alt="Product Management Job Simulation Certificate">
+                            </div>
+                            <div class="cert-info">
+                                <h3 class="cert-title">Product Management Job Simulation</h3>
+                                <p class="cert-details">Electronic Arts & Forage!</p>
+                            </div>
+                        </div>
+
+                        <div class="cert-card reveal reveal-up" style="transition-delay: 400ms;">
+                            <div class="cert-image-wrapper"><img
+                                    src="projects/certificates/INTERNSHIP OfferLetter.png"
+                                    alt="INTERNSHIP OfferLetter">
+                            </div>
+                            <div class="cert-info">
+                                <h3 class="cert-title">Frontend Development Internship</h3>
+                                <p class="cert-details">INTERNSHIP OfferLetter</p>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="contact">
+            <h2 class="section-title reveal reveal-up">Get In Touch</h2>
+            <div class="contact-content reveal reveal-zoom">
+                <p class="thank-you-text" style="margin-bottom: 2rem;">I'm currently seeking new opportunities and would
+                    love to hear from you. Whether you have a question or just want to connect, feel free to reach out!
+                </p>
+                <a href="mailto:kavinkumarkumar258@gmail.com" class="contact-item"><i
+                        class="fas fa-envelope"></i><span>kavinkumarkumar258@gmail.com</span></a>
+                <a href="tel:+916374280855" class="contact-item"><i class="fas fa-phone"></i><span>(+91)
+                        6374-280-855</span></a>
+                <div class="contact-item"><i class="fas fa-map-marker-alt"></i><span>Coimbatore, Tamil Nadu,
+                        India</span></div>
+                <div class="social-links">
+                    <a href="https://github.com/KAVINKUMAR2818" class="social-link magnetic" title="GitHub"
+                        target="_blank" rel="noopener noreferrer"><i class="fab fa-github"></i></a>
+                    <a href="https://www.linkedin.com/in/kavin-kumar-m-475614299/" class="social-link magnetic"
+                        title="LinkedIn" target="_blank" rel="noopener noreferrer"><i class="fab fa-linkedin"></i></a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Puzzle Trigger Link (Centered between Contact and Footer) -->
+        <div class="puzzle-trigger-container">
+            <button id="puzzle-trigger" class="puzzle-trigger">
+                Solve the Puzzle
+            </button>
+        </div>
+
+        <footer>
+            &copy; <span id="copyright-year"></span> Kavin Kumar M. All rights reserved.
+        </footer>
+    </div>
+
+    <!-- Puzzle Modal -->
+    <div id="puzzle-modal" class="puzzle-modal">
+        <div class="puzzle-modal-content">
+            <button class="puzzle-close" id="puzzle-close">&times;</button>
+
+            <!-- Puzzle View -->
+            <div id="puzzle-view" class="puzzle-view">
+                <h2 class="puzzle-title">🧩 Word Scramble Challenge</h2>
+                <p class="puzzle-instructions">Unscramble the letters to find the name!</p>
+
+                <div class="letter-tiles">
+                    <span class="letter-tile">I</span>
+                    <span class="letter-tile">V</span>
+                    <span class="letter-tile">A</span>
+                    <span class="letter-tile">K</span>
+                    <span class="letter-tile">N</span>
+                </div>
+
+                <form id="puzzle-form" class="puzzle-form">
+                    <input type="text" id="puzzle-input" class="puzzle-input" placeholder="Type your answer here..."
+                        autocomplete="off" maxlength="10">
+                    <button type="submit" class="puzzle-submit-btn">Submit Answer</button>
+                </form>
+
+                <p class="puzzle-hint">💡 Hint: It's my first name!</p>
+            </div>
+
+            <!-- Success View -->
+            <div id="puzzle-success" class="puzzle-success" style="display: none;">
+                <div class="success-icon">🎉</div>
+                <h2 class="success-title">Congratulations!</h2>
+                <p class="success-message">You've explored my entire portfolio and solved the puzzle!</p>
+                <div class="success-hint-box">
+                    <p class="success-hint">✨ Here's your reward:</p>
+                    <p class="success-hint-main">Type <strong>"kavin"</strong> anywhere on the page !</p>
+                </div>
+                <button id="puzzle-got-it" class="puzzle-got-it-btn">Got it! 🚀</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- JARVIS AI Assistant (Iron Man Theme Only) -->
+    <button id="jarvis-btn" class="jarvis-btn" title="Speak with JARVIS">
+        <span class="jarvis-btn-text">Speak with JARVIS</span>
+        <i class="fas fa-microphone"></i>
+    </button>
+
+    <!-- JARVIS Chat Window -->
+    <div id="jarvis-window" class="jarvis-window">
+        <div class="jarvis-header">
+            <div class="jarvis-title">
+                <span style="font-size: 18px;">🧠</span>
+                <span>J.A.R.V.I.S</span>
+            </div>
+            <div class="jarvis-controls">
+                <button id="jarvis-minimize" class="jarvis-control-btn" title="Minimize">
+                    <i class="fas fa-minus"></i>
+                </button>
+                <button id="jarvis-close" class="jarvis-control-btn" title="Close">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+        </div>
+        <div class="jarvis-chat-container" id="jarvis-chat">
+            <!-- Messages will be added here dynamically -->
+        </div>
+
+        <!-- Quick Action Buttons -->
+        <div class="jarvis-quick-actions">
+            <button class="quick-action-btn" id="jarvis-show-projects" title="View Projects">
+                <i class="fas fa-folder-open"></i>
+                <span>Projects</span>
+            </button>
+            <button class="quick-action-btn" id="jarvis-contact" title="Contact Me">
+                <i class="fas fa-envelope"></i>
+                <span>Contact</span>
+            </button>
+            <button class="quick-action-btn" id="jarvis-resume" title="Download Resume">
+                <i class="fas fa-download"></i>
+                <span>Resume</span>
+            </button>
+        </div>
+
+        <!-- Suggestion Chips -->
+        <div class="jarvis-suggestions" id="jarvis-suggestions"></div>
+
+        <!-- Suggestions Toggle Button -->
+        <button class="jarvis-suggestions-toggle" id="jarvis-suggestions-toggle" title="Toggle suggestions">
+            <i class="fas fa-chevron-down"></i>
+        </button>
+
+        <div class="jarvis-input-area">
+            <button id="jarvis-voice-btn" class="jarvis-voice-btn" title="Click to speak">
+                <i class="fas fa-microphone"></i>
+            </button>
+            <input type="text" id="jarvis-text-input" class="jarvis-text-input"
+                placeholder="Type or click microphone to speak...">
+            <button id="jarvis-send-btn" class="jarvis-send-btn" title="Send message">
+                <i class="fas fa-paper-plane"></i>
+            </button>
+        </div>
+        <div class="jarvis-status" id="jarvis-status">
+            <span class="jarvis-status-text">Ready</span>
+        </div>
+    </div>
+
+    <!-- JARVIS AI Assistant - API keys secured on Vercel backend -->
+    <script src='jarvis.js'></script>
+    <script src='javascript.js'></script>
+</body>
+
+</html>
