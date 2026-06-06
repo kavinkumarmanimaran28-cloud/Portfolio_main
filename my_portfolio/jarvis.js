@@ -72,7 +72,7 @@ class JARVISAssistant {
             this.knowledgeBase = await response.json();
         } catch (error) {
             // Fallback with empty knowledge base
-            this.knowledgeBase = { owner: { name: 'Deepak' } }; // Fallback
+            this.knowledgeBase = { owner: { name: 'Kavin' } }; // Fallback
         }
     }
 
@@ -180,12 +180,12 @@ class JARVISAssistant {
 
         // Show greeting if first time (without long message)
         if (this.chatHistory.length === 0) {
-            const greeting = this.knowledgeBase?.jarvisPersonality?.greeting || "Good day! I am JARVIS, Deepak's portfolio assistant. May I have the pleasure of knowing your name?";
+            const greeting = this.knowledgeBase?.jarvisPersonality?.greeting || "Good day! I am JARVIS, Kavin's portfolio assistant. May I have the pleasure of knowing your name?";
             this.addMessage(greeting, 'jarvis');
             this.speak(greeting);
 
             // Show initial suggestions
-            const initialSuggestions = ["Show me his projects", "What are his skills?", "Tell me about Deepak"];
+            const initialSuggestions = ["Show me his projects", "What are his skills?", "Tell me about Kavin"];
             this.showSuggestions(initialSuggestions);
         }
     }
@@ -479,9 +479,9 @@ class JARVISAssistant {
         return `You are JARVIS, an AI assistant inspired by Tony Stark's JARVIS from Iron Man. 
         
 CONTEXT:
-- You are living in Deepak Saravanakumar's portfolio website.
+- You are living in Kavin Kumar M's portfolio website.
 - The user you are talking to is a VISITOR (a recruiter, developer, or guest).
-- The user is NOT Deepak. Deepak is your creator/owner.
+- The user is NOT Kavin. Kavin Kumar M is your creator/owner.
 
 CURRENT DATE & TIME: ${currentDateTime}
 
@@ -621,10 +621,10 @@ Remember: The user is a GUEST. Make them feel welcome.`;
         this.playSound('send');
         this.addMessage("Preparing resume download... Please check your downloads folder!", 'jarvis');
         // Update this path to your actual resume file
-        const resumeUrl = 'DeepakResume.pdf';
+        const resumeUrl = 'projects/resume/Kavin_Kumar_Resume.pdf';
         const a = document.createElement('a');
         a.href = resumeUrl;
-        a.download = 'Deepak_Resume.pdf';
+        a.download = 'Kavin_Kumar_Resume.pdf';
         a.click();
     }
 
@@ -664,11 +664,11 @@ Remember: The user is a GUEST. Make them feel welcome.`;
         } else if (lowerResponse.includes('skill')) {
             suggestions.push("What's his strongest skill?", "Does he know AI?", "Show projects");
         } else if (lowerResponse.includes('education')) {
-            suggestions.push("What is his CGPA?", "Tell me about projects", "What skills?");
+            suggestions.push("Tell me about Kavin", "Tell me about projects", "What skills?");
         } else if (lowerResponse.includes('hello') || lowerResponse.includes('hi')) {
-            suggestions.push("Show me his projects", "What are his skills?", "Tell me about Deepak");
+            suggestions.push("Show me his projects", "What are his skills?", "Tell me about Kavin");
         } else {
-            suggestions.push("Show projects", "Contact Deepak", "What skills?");
+            suggestions.push("Show projects", "Contact Kavin", "What skills?");
         }
 
         return suggestions.slice(0, 3);
